@@ -3,4 +3,7 @@
     <string name="boton_saludar">saludar</string>
     <string name="consejo_entrada_texto">nombre</string>
     <string name="inicio_saludo">¡Hola </string>
+    <string name="boton_saludo_externo">Saludo Externo</string>
+    <string name="boton_compartir">Compartir</string>
+    <string name="boton_guardar">Guardar</string>
 </resources>

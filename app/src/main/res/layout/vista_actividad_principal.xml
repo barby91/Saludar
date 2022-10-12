@@ -11,20 +11,52 @@
 
         <EditText
             android:id="@+id/entradaNombre"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/consejo_entrada_texto"
             android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/botonSaludar"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:onClick="metodfoSaludar"
-            android:text="@string/boton_saludar" />
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/botonSaludar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:onClick="metodfoSaludar"
+                android:text="@string/boton_saludar" />
+
+            <Button
+                android:id="@+id/botonSaludoExterno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:onClick="metodfoSaludar"
+                android:text="@string/boton_saludo_externo" />
+
+            <Button
+                android:id="@+id/botoncompartir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:onClick="metodfoSaludar"
+                android:text="@string/boton_compartir" />
+
+            <Button
+                android:id="@+id/botonGuardar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:onClick="metodfoSaludar"
+                android:text="@string/boton_guardar" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <TextView
