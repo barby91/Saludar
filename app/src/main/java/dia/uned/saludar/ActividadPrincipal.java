@@ -1,6 +1,8 @@
 package dia.uned.saludar;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,8 @@ import java.util.List;
 public class ActividadPrincipal extends AppCompatActivity {
 
     public final static String SALUDO = "dia.uned.saludar.SALUDO";
+    public final static String NOMBRE_GUARDADO_EN_DISCO = "com.uned.dia.saludar.NOMBRE_GUARDADO_EN_DISCO";
+    public final static String SALUDO_GUARDADO = "com.uned.dia.saludar.SALUDO_GUARDADO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -23,6 +27,27 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         //establecemos que se use la vista adecuada
         setContentView(R.layout.vista_actividad_principal);
+
+        SharedPreferences preferencias = this.getPreferences(Context.MODE_PRIVATE);
+        String nombreGuardado = preferencias.getString(NOMBRE_GUARDADO_EN_DISCO, "");
+
+        escribirNombre(nombreGuardado);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle datosGuardados)
+    {
+        String salida = obtenerSalida();
+        datosGuardados.putString(SALUDO_GUARDADO, salida);
+        super.onSaveInstanceState(datosGuardados);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle datosGuardados)
+    {
+        super.onRestoreInstanceState(datosGuardados);
+        String salida = datosGuardados.getString(SALUDO_GUARDADO);
+        escribirSalida(salida);
     }
 
     public void metodoSaludar (View view)
@@ -91,5 +116,15 @@ public class ActividadPrincipal extends AppCompatActivity {
         {
             escribirSalida( getString(R.string.error_lanzando_app));
         }
+    }
+
+    public void GuardarNombre(View view)
+    {
+        String nombre = obtenerNombre();
+        SharedPreferences preferencias = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putString(NOMBRE_GUARDADO_EN_DISCO, nombre);
+        editor.commit();
+        escribirSalida(getString(R.string.nombre_guardado_OK));
     }
 }
