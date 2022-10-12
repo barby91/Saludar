@@ -6,4 +6,5 @@
     <string name="boton_saludo_externo">Saludo Externo</string>
     <string name="boton_compartir">Compartir</string>
     <string name="boton_guardar">Guardar</string>
+    <string name="error_lanzando_app">Error, no hay aplicación capaz de enviar texto.</string>
 </resources>

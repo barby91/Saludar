@@ -1,12 +1,15 @@
 package dia.uned.saludar;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 
 public class ActividadPrincipal extends AppCompatActivity {
@@ -65,5 +68,28 @@ public class ActividadPrincipal extends AppCompatActivity {
         Intent intent = new Intent(this, MostrarSaludo.class);
         intent.putExtra(SALUDO, textoSaludo);
         startActivity(intent);
+    }
+
+    public void SaludarOtraApp(View view)
+    {
+        String textoSaludo = crearSaludo(obtenerNombre());
+        escribirSalida("");
+
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, textoSaludo);
+        intent.setType("text/plain");
+        PackageManager packageManager = getPackageManager();
+        List activities= packageManager.queryIntentActivities(intent,PackageManager.MATCH_DEFAULT_ONLY);
+        if(activities.size() > 0)
+        {
+            intent.putExtra(Intent.EXTRA_TEXT, textoSaludo);
+            startActivity(intent);
+            //escribirSalida( activities.get(0).toString());
+        }
+        else
+        {
+            escribirSalida( getString(R.string.error_lanzando_app));
+        }
     }
 }
