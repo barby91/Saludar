@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:onClick="metodfoSaludar"
+                android:onClick="metodoSaludar"
                 android:text="@string/boton_saludar" />
 
             <Button
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:onClick="metodfoSaludar"
+                android:onClick="SaludarActivdadNueva"
                 android:text="@string/boton_saludo_externo" />
 
             <Button
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:onClick="metodfoSaludar"
+                android:onClick="metodoSaludar"
                 android:text="@string/boton_compartir" />
 
             <Button
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:onClick="metodfoSaludar"
+                android:onClick="metodoSaludar"
                 android:text="@string/boton_guardar" />
         </LinearLayout>
 
